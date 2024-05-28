@@ -9,8 +9,8 @@ const productSchema = moongoose.Schema({
         default: 0
     },
     bgcolor: String,
-    panelcolor: Number,
-    textcolor: Number,
+    panelcolor: String,
+    textcolor: String,
 });
 
 module.exports = moongoose.model("product", productSchema);
