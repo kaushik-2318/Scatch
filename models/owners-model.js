@@ -14,7 +14,6 @@ const ownerSchema = moongoose.Schema({
     },
     picture: String,
     gstin: String,
-
 });
 
 module.exports = moongoose.model("owner", ownerSchema);

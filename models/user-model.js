@@ -10,7 +10,6 @@ const userSchema = moongoose.Schema({
         type: Array,
         default: [],
     },
-    isadmin: Boolean,
     orders: {
         type: Array,
         default: [],
