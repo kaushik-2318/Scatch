@@ -1,15 +1,18 @@
-const moongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-moongoose.connect("mongodb://localhost:27017/Scatch");
-
-const userSchema = moongoose.Schema({
-    fullname: String,
+const userSchema = mongoose.Schema({
+    fullname: {
+        type: String,
+        required: true,
+        minLength: 3,
+        trim: true
+    },
     email: String,
     password: String,
-    cart: {
-        type: Array,
-        default: [],
-    },
+    cart: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "product",
+    }],
     orders: {
         type: Array,
         default: [],
@@ -18,4 +21,4 @@ const userSchema = moongoose.Schema({
     picture: String,
 });
 
-module.exports = moongoose.model("user", userSchema);
+module.exports = mongoose.model("user", userSchema);
